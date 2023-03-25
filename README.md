@@ -1,0 +1,1 @@
+Utilizes PyAutoGUI library to create, save, and run macros.
