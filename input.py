@@ -28,3 +28,17 @@ class keyboardInput(input):
         pyautogui.keyDown(self.key)
     def sendUp(self):
         pyautogui.keyUp(self.key)
+
+class keyboardInputDown(input):
+    def __init__(self, duration, key):
+        super().__init__(duration)
+        self.key = key
+    def send(self):
+        pyautogui.keyDown(self.key)
+
+class keyboardInputUp(input):
+    def __init__(self, duration, key):
+        super().__init__(duration)
+        self.key = key
+    def send(self):
+        pyautogui.keyUp(self.key)
