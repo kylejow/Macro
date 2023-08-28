@@ -1,16 +1,23 @@
 #https://github.com/asweigart/pyautogui
+import os
+
 from position import getPoints
 import input
 from win32api import Sleep
 
-points = getPoints()
 
-for i, point in enumerate(points, 1):
-    print(str(i) + '. ' + str(point.x) + ', ' + str(point.y))
+def simpleClicks():
+    #sequence of 1ms clicks
+    macro = []
+    points = getPoints()
+    for point in points:
+        macro.append(input.mouseInput(1, point))
+        macro.append(input.delay(100))
+    return macro
+def runMacro(macro):
+    for item in macro:
+        item.send()
 
-Sleep(3000)
-testInputs = []
-testInputs.append(input.mouseInput(10, points[0]))
-testInputs.append(input.keyboardInput(10, "a"))
-for input in testInputs:
-    input.send()
+test = simpleClicks()
+Sleep(2000)
+runMacro(test)

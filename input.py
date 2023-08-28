@@ -42,3 +42,9 @@ class keyboardInputUp(input):
         self.key = key
     def send(self):
         pyautogui.keyUp(self.key)
+
+class delay(input):
+    def __init__(self, duration):
+        super().__init__(duration)
+    def send(self):
+        Sleep(self.duration)
